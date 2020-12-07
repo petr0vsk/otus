@@ -4,5 +4,6 @@ Solutions for "Python Developer" course at otus.ru
 
 #### Author
 Александр Петровский (aka petr0vsk)
+
 email: petr0vskjy.aleksander@gmail.com
 
