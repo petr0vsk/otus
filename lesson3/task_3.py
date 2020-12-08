@@ -1,12 +1,10 @@
-######### библиотеки ######################################################################
 from operator  import pow 
 from itertools import repeat
 from pprint import pprint
 import time
 from functools import wraps
-########### функции #######################################################################
-#--- декоратор измеряющий время выполнения функции ------
-def timer(f):
+
+def timer(f): # декоратор измеряющий время выполнения функции 
     '''
     декоратор, возращает время выполнения функции в ms
     '''
@@ -17,7 +15,7 @@ def timer(f):
         print( f"Время выполнения функции: { '{:.2f}ms'.format(1000*(time.time()-t))}" )
         return res
     return inner
-# --- декоратор, подсчитвающий число вызовов (вхождений) функции --- 
+
 def trace(str): # передаем в качестве аргумента строку для визуализации погружений/всплытий
     """
     Trace calls made to the decorated function.
@@ -49,7 +47,7 @@ def trace(str): # передаем в качестве аргумента стр
             return res
         return second_inner
     return first_inner    
-# --- функция, которая принимает N целых чисел и возвращает список степеней этих чисел ---
+
 def get_degree_of_numbers(*args, degree=2):
     """" 
     Функция принимает на вход произвольное количество целых чисел и возвращает (по умолчанию) 
@@ -66,8 +64,6 @@ def get_degree_of_numbers(*args, degree=2):
     else:
         print("=== Error: degree must be integer!!! ===") # если ошиблись с типом аргументов
                        
-# --- функция, которая на вход принимает список из целых чисел, и возвращает только чётные/нечётные/простые числа ---
-
 DEF_RETURN_EVEN = 0  # константа по умолчанию для проверки типа фильтрации в UPPER_SNAKE_CASE
 @timer
 def get_even_odd_simple_num(*args, choise = DEF_RETURN_EVEN):
@@ -78,8 +74,8 @@ def get_even_odd_simple_num(*args, choise = DEF_RETURN_EVEN):
     По умолчнию возвращает четные числа (см. константу DEF_RETURN_EVEN = 0 )
     Ограничения: все аргументы целые (int) числа.
     """
-    #---- унутренняя функция для проверки является ли число простым ---   
-    def is_num_simple(x):
+      
+    def is_num_simple(x): # является ли число простым? 
         if x == 1:
             return False  # решением ООН еденица исключена из списка простых чисел
         if x % 2 == 0:
@@ -88,7 +84,7 @@ def get_even_odd_simple_num(*args, choise = DEF_RETURN_EVEN):
         while d * d <= x and x % d != 0:
             d += 2
         return d * d > x # а здесь возможны варинаты ...
-    #----------------------------------------------------------------
+    
     if all(isinstance(x, int) for x in args): # все аргументы целые числа?
         if choise == 0: # по умолчанию вернем четные числа из списка
             return list(filter(lambda x: x%2, args))     
@@ -101,23 +97,19 @@ def get_even_odd_simple_num(*args, choise = DEF_RETURN_EVEN):
     else:
             print("=== Error: all argumrnts must be integer!!! ===")# если ошиблись с типом аргументов
     
-
-# ---   ф. фибоначи рекурсивно --- 
 @trace("____")
-def fib(n):
+def fib(n):  # ф. фибоначи рекурсивно  
     '''
     Вычисление n-го числа ряда Фибоначчи
-    Соглашения: начинаем ряд с чиcла 1
     Ограничения: все аргументы целые (int) числа.
     '''
     if isinstance(n, int): 
-        if n in (1, 2):
+        if n in (0, 1):
             return 1
         return fib(n - 1) + fib(n - 2) 
     else:
         print("=== Error: argument must be integer!!! ===")# если ошиблись с типом аргумента   
 
-########################### демонстрируем работу всех функций #################################
 def main():
     pprint('результат работы функции возведения в степень 3 списка чисел ')    
     pprint(list( get_degree_of_numbers(1,2,3,4,5, degree=3)  ))
@@ -130,7 +122,7 @@ def main():
     pprint(' работа обертки декоратора @wrap для ф. get_even_odd_simple_num()')
     pprint(get_even_odd_simple_num.__doc__)
     pprint('результат работы функции определения простого числа + декоратор @trace ')    
-    pprint(fib(3))
+    pprint(fib(0))
     pprint(' работа обертки декоратора @wrap для ф. fib()')
     pprint(fib.__doc__)
 
