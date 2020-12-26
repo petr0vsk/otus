@@ -85,4 +85,3 @@ class Bot(FatherBot):
     @property
     def get_capability(self):                           # самореклама - а я еще могу ...
         print(f"Возможности: ", self.__repr__)
-
