@@ -1,4 +1,7 @@
-from  .fatherbot import FatherBot
-from  .bot       import Bot
-from  .candrive  import CanDrive
-from  .roverbot  import RoverBot
+from  .fatherbot  import FatherBot      # архетип-метакласс
+from  .bot        import Bot            # робот
+from  .candrive   import CanDrive       # класс-миксин обеспечивающий возможность ехать по поверхности
+from  .canfloat   import CanFloat       # класс-миксин обеспечивающий возможность летать 
+from  .canfly     import CanFly         # класс-миксин обеспечивающий возможность плыть 
+from  .roverbot   import RoverBot       # самодвижущийся робот-автомобиль
+from  .flyingboat import FlyingBoatBot  # летающая лодка-робот
