@@ -1,30 +1,20 @@
-from robots import Bot, RoverBot, FlyingBoatBot
-
-# робот без вожмности передвигаться
-b = Bot('FirstModel', 'USRobotsInc', 'Name', 100, 10, 1000, 25)
-#print(b.__repr__)
-b.check_fuel
-# удельная мощность при весе = 100 и мощности мотора 10
-b.power_to_weight
-# удельная мощность при весе = 200 и мощности мотора 50
-b.weight = 200
-b.engine_power = 50
-b.power_to_weight
-b.get_capability
+from robots import Bot, RoverBot, FlyingBoatBot, Engine, hi_power_engine, aviation_engine
 
 # наземный робот вездеход
-r = RoverBot('Model#12345', 'Boston Dynamics', 'BumblBee', 110, 10, 1000, 25, 4)
-r.get_capability
-r.power_to_weight
-r.can_drive
-print(r.number_of_wheels)
-r.number_of_wheels = 8 
-print(r.number_of_wheels)
-
+print("======== Демонстрация возможностей робота-вездехода ============")
+rover = RoverBot('Model#12345', 'Boston Dynamics', 'BumblBee', 110, 10000, hi_power_engine, 4)
+print("Удельная мощность двигателя: ", rover.power_to_weight)
+print("Количество колес робота: ",rover.number_of_wheels)
+rover.number_of_wheels = 8 # проверим геттер по установке количества колес
+print("Количество колес робота: ",rover.number_of_wheels)
+rover.go_to(10)             # отправим робота в путь
+rover.get_capability        # получим возможности робота, перегрузка метода get_capability
 # робот летающая лодка
-c = FlyingBoatBot('Model#Catalina', 'USRobotics', 'SeaCat', 110, 10, 1000, 2500, 2666.8, 2)
-c.get_capability
-c.can_fly
-c.can_float
-c.check_fuel
-print(c.number_of_wings)
+print("======== Демонстрация возможностей робота летающая-лодка ============")
+flybot = FlyingBoatBot('Model#Catalina', 'USRobotics', 'SeaCat', 122, 20, aviation_engine, 200.1, 2)
+flybot.check_fuel           #
+flybot.go_to(50)            # сработка пользовательского исключения, вынесенногоо в класс LowFuelError
+flybot.fuel_supply = 2250   # добавим топлива
+flybot.check_fuel           # проверим количество топлива
+flybot.go_to(50)            # отправим робота в путь
+flybot.get_capability       # получим возможности робота, перегрузка метода get_capability 
