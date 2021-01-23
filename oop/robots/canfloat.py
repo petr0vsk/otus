@@ -1,6 +1,8 @@
 # для плавающих роботов 
 class CanFloat():
-    
+    """
+    класс-миксин, дающий роботу возможности плыть
+    """
     def __init__(self, displacement):
         self.displacement = displacement
 
