@@ -1,25 +1,25 @@
-# для плавающих роботов 
-class CanFloat():
+# для летающих роботов 
+class CanFly():
     """
-    класс-миксин, дающий роботу возможности плыть
+    класс-миксин, дающий роботу возможность летать
     """
-    def __init__(self, displacement):
-        self.displacement = displacement
+    def __init__(self, number_of_wings):
+        self.number_of_wings = number_of_wings
 
     def __repr__(self):
-         return f'{self.__class__.__name__}("{self.displacement}")'  
+        return f'{self.__class__.__name__}("{self.number_of_wings}")'  
 
     @property
-    def displacement(self):
-        return self.__displacement
+    def number_of_wings(self):
+        return self.__number_of_wings
 
-    @displacement.setter
-    def displacement(self, new_displacement):
-        if not isinstance(new_displacement, float ):
-                raise ValueError('Водоизмещение принадлежит к типу flaot')
-        self.__displacement = new_displacement
+    @number_of_wings.setter
+    def number_of_wings(self, new_number_of_wings):
+        if not isinstance(new_number_of_wings, int ):
+                raise ValueError('Количество крыльев рбота принадлежит к типу int')
+        self.__number_of_wings = new_number_of_wings
 
 
     @property
-    def can_float(self):
-        print("могу плыть")    
+    def can_fly(self):
+        print("могу летать")    
