@@ -1,5 +1,8 @@
 # для роботов роверов  
 class CanDrive():
+    """
+    класс-миксин, дающий роботу возможность ехать по поверхности
+    """
     
     def __init__(self, number_of_wheels):
         self.number_of_wheels = number_of_wheels
@@ -14,13 +17,13 @@ class CanDrive():
     @number_of_wheels.setter
     def number_of_wheels(self, new_number_of_wheels):
         if not isinstance(new_number_of_wheels, int ):
-                raise ValueError('Количество колесь рбота принадлежит к типу int')
+                raise ValueError('Количество колес рбота принадлежит к типу int')
         self.__number_of_wheels = new_number_of_wheels
 
 
     @property
     def can_drive(self):
-        print("могу ехать ")    
+        print("могу передвигаться по поверхности")    
 
     
 
