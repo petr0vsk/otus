@@ -1,5 +1,10 @@
 from abc import ABCMeta, abstractmethod
+
+
 class FatherBot(object, metaclass=ABCMeta):
+    """
+    Базовый протокласс для всех роботов --> FatherBot
+    """
     def __init__(self, model, manufacture):
         self.model = model                  # модель
         self.manufacture = manufacture      # производитель
@@ -10,6 +15,11 @@ class FatherBot(object, metaclass=ABCMeta):
     @abstractmethod
     def check_fuel(self):                   # обязательная проверка в дочерних классах есть ли топливо в баке
         pass
+
+    @abstractmethod                         # он сказал поехали! и махнул рукой...
+    def go_to(self, distance):
+        pass    
+
     @property    
     def model(self):
         return self.__model
