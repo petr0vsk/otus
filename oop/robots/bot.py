@@ -8,7 +8,6 @@ class Bot(FatherBot):
     Базовый класс роботов без выбора способа передвижения
     """
     def __init__(self, model, manufacture, name, weight, fuel_supply, engine=base_engine):
-        #FatherBot.__init__(self, model, manufacture)
         super().__init__(model, manufacture)
         self.name = name                        # имя робота
         self.weight = weight                    # вес
