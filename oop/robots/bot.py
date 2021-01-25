@@ -62,7 +62,6 @@ class Bot(FatherBot):
     def power_to_weight(self):                          # вычисление удельной мощности движка 
         if self.__spec_engin_power is None:             # если еще не вычисляли spec_engin_power
             spec_engin_power = self.__weight / self.engine.engine_power
-            #print(f"Удельная мощность двигателя {spec_engin_power}") 
             return spec_engin_power    
 
     
