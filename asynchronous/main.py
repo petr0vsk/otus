@@ -9,14 +9,14 @@ logging.basicConfig(level=logging.DEBUG)
 
 ### здесь работает #######
 weather_list = asyncio.run(get_weather())
-#print( weather_list )
+print( weather_list )
 
 
 async def list_all(request, weather_list):
-    
+    pass
     #weather_list = asyncio.run(get_weather())
     #print(weather_list)
-    return web.Response(text=weather_list)
+    #return web.Response(text=weather_list)
    
 
 async def add_user(request):
