@@ -29,7 +29,9 @@ async def get_session(town):
     return [town, temp, pressure, humidity]
 
 async def get_weather():
-
+    '''
+    получаем погоду в несколько корутин
+    '''
     coros = (
         get_session(town)
         for town in TOWN_LIST
