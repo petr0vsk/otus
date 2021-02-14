@@ -2,20 +2,25 @@ from tortoise.models import Model
 from tortoise import fields, Tortoise, run_async
 import logging
 
+class MyAbstractBaseModel(Model):
+    id = fields.IntField(pk=True)
 
-class Weather(Model):
+    class Meta:
+        abstract = True
+
+class TimestampMixin():
+    datetime = fields.DatetimeField(auto_now_add=True)
+
+class Weather(TimestampMixin, MyAbstractBaseModel):
     """
     описывает погоду в городе,
     название_города, температура F, давление, влажность 
     """
-    id       = fields.IntField(pk=True)
-    datetime = fields.DatetimeField(auto_now_add=True)
     name     = fields.CharField(max_length=255)
     temp     = fields.FloatField() 
     pressure = fields.FloatField() 
     humidity = fields.FloatField()
 
-    
     class Meta:
         table = "weather" 
 
