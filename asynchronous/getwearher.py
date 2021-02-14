@@ -8,6 +8,10 @@ import random as rnd
 TOWN_LIST = ['London', 'Moscow', 'Kyiv', 'Berlin', 'Barcelona']
 
 async def get_session(town):
+    '''
+    получаем погоду с сайта openweather.org по 
+    городам, указанным в TOWN_LIST
+    '''
     async with aiohttp.ClientSession() as session:
         url = f'http://api.openweathermap.org/data/2.5/weather?q={town}&appid=5e9e27c33f5ecafaf9083a17607da8f4'
         async with session.get(url) as resp:
