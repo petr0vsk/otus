@@ -4,10 +4,10 @@ import json
 from loguru import logger
 import random as rnd
 
-TOWN_LIST = ['London', 'Moscow', 'Kyiv', 'Berlin', 'Barselona']
+
+TOWN_LIST = ['London', 'Moscow', 'Kyiv', 'Berlin', 'Barcelona']
 
 async def get_session(town):
-    
     async with aiohttp.ClientSession() as session:
         url = f'http://api.openweathermap.org/data/2.5/weather?q={town}&appid=5e9e27c33f5ecafaf9083a17607da8f4'
         async with session.get(url) as resp:
@@ -31,6 +31,7 @@ async def get_weather():
         for town in TOWN_LIST
     )
     result = await asyncio.gather(*coros)
+    print(f'f_get_weather: {result} ')
     return result
 
 if __name__ == "__main__":    
