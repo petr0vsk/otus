@@ -54,11 +54,9 @@ async def town_page(request):
 
 
 app = web.Application()
-#aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('templates'))
 app.add_routes([web.get("/", resume_town)])
 app.add_routes([web.get("/all", show_all)])
 app.add_routes([web.get("/{url_town}", town_page)])
-#app.add_routes([web.static('/static', 'static')])
 register_tortoise(
     app, db_url='sqlite://db.sqlite3', modules={"models": ["models"]}, generate_schemas=True
     
