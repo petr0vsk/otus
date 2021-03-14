@@ -17,5 +17,5 @@ app.config.update(dict(
 
 
 from .home.views import *
-from .views import *
+
 
