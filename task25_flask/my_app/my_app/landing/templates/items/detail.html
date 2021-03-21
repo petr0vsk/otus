@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class='col-10 mx-auto'>
+    <table class="table text-left">
+        <thead class="thead-dark">
+            <tr>
+              <th>id</th>
+              <th>Username</th>
+              <th>Email</th>
+            </tr>
+            <tr>
+              <td>{{ instance.id }}</td>
+              <td>{{ instance.full_name }}</td>
+              <td> {{ instance.email }} </td>
+              </tr>        
+    </table>            
+
+</div>
+
+{% endblock content %}
