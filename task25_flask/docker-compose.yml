@@ -1,0 +1,27 @@
+version: "3.5"
+
+services:
+  landing:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: gunicorn -w4 -b :80 main
+    environment:
+      SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://user:password@pg:5432/landing"
+    ports:
+      - 80:80
+    volumes:
+      - ./my_app:/var/app
+    depends_on:
+      - pg
+
+  pg:
+    image: postgres:11
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: landing
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432      
