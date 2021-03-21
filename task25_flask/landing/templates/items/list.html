@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class='col-10 text-center mx-auto'>
+
+<table class="table text-left">
+    <thead class="thead-dark">
+        <tr>
+          <th>id</th>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+{% for instance in object_list %}    
+<tr>
+<td>{{ instance.id }}</td>
+<td>{{ instance.full_name }}</td>
+<td> {{ instance.email }} </td>
+</tr>
+{% endfor %}
+</table>
+
+
+</div>
+
+
+{% endblock content %}
