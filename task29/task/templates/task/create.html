@@ -1,0 +1,17 @@
+{% extends 'task/base.html' %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h4>Создание новой задачи</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit" class="btn btn-outline-success">Сохранить</button>
+        <span>{{error}}</span>
+    </form>
+{% endblock %}
+
