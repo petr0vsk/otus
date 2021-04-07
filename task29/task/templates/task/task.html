@@ -10,14 +10,12 @@
             <h4>{{ object.title }}</h4>
             <p> {{ object.task }}</p>
             
-            <p>                                                                       
+            <div class="btn-group" role="group" aria-label="Basic example">                                                                       
                 <a class="btn btn-outline-secondary" href="{% url 'home' %}" role="button">К списку задач</a>
-            </p> 
-            <!-- Почему не работает? 
-            <p>                                                                       
-                <a class="btn btn-outline-danger" href="delete/{{object.pk}}" role="button">Удалить</a>
-            </p>  
-            --> 
+                <a class="btn btn-outline-success" href="{% url 'update' object.pk %}" role="button">Редактировать</a>                                   
+                <a class="btn btn-outline-danger" href="/delete/{{object.pk}}" role="button">Удалить</a>
+            </div>  
+            
 
         </div>                                                                                        
                                                                                                                                                                                                                  
