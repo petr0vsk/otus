@@ -1,0 +1,22 @@
+{% extends 'task/base.html' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h4>Задача подробно</h4>
+    
+        <div class="alert alert-secondary mt-2" >                                                                                                  
+            <h4>{{ object.title }}</h4>
+            <p> {{ object.task }}</p>
+            
+            <div class="btn-group" role="group" aria-label="Basic example">                                                                       
+                <a class="btn btn-outline-secondary" href="{% url 'home' %}" role="button">К списку задач</a>
+                <a class="btn btn-outline-success" href="{% url 'update' object.pk %}" role="button">Редактировать</a>                                   
+                <a class="btn btn-outline-danger" href="{% url 'delete' object.pk %}" role="button">Удалить</a>
+            </div>  
+            
+
+        </div>                                                                                        
+                                                                                                                                                                                                                 
+{% endblock %}
