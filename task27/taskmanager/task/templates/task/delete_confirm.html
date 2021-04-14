@@ -1,0 +1,22 @@
+{% extends 'task/base.html' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h4>Вы уверены?</h4>
+    
+        <div class="alert alert-secondary mt-2" >                                                                                                  
+            <h4>{{ object.title }}</h4>
+           
+        <form method="post">
+            {% csrf_token %}
+            <div class="btn-group" role="group" aria-label="Basic example"></div>
+            <button type="submit" class="btn btn-outline-danger">Удалить</button>
+            <a class="btn btn-outline-secondary" href="/" role="button">На главную</a>
+        </div>
+        </form>     
+            
+        </div>                                                                                        
+                                                                                                                                                                                                                 
+{% endblock %}
